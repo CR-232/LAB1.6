@@ -44,7 +44,7 @@ public class Main {
         }
 
         // Textul final (cu întârziere între litere)
-        String text = "Lucrarea realizata de:Tulei Mihail (Th1/Th2)  Cuturov Oleg ( Th3/Th4 )";
+        String text = "Lucrarea realizata de:Tulei Mihagit reset\n4il (Th1/Th2)  Cuturov Oleg ( Th3/Th4 )";
         for (char c : text.toCharArray()) {
             System.out.print(c);
             try { Thread.sleep(100); } catch (InterruptedException ignored) {}
