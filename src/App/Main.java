@@ -15,13 +15,13 @@ public class Main {
         }
         System.out.println("\n");
 
-        // 🔹 Th1 și Th2 – colegul tău (Counter1imp)
+        // Th1 și Th2
         Counter1imp th1 = new Counter1imp(0, 99, 1, tablou);
         Counter1imp th2 = new Counter1imp(99, 0, -1, tablou);
         th1.setName("Th1");
         th2.setName("Th2");
 
-        // 🔹 Th3 și Th4 – tu (Counter2imp)
+        // Th3 și Th4
         Counter2imp th3 = new Counter2imp(0, 99, 1, tablou);
         Counter2imp th4 = new Counter2imp(99, 0, -1, tablou);
         th3.setName("Th3");
