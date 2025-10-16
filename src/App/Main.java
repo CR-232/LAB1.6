@@ -13,6 +13,9 @@ public class Main {
         for (int i = 0; i < 100; i++) {
             tablou[i] = (int) (Math.random() * 99 + 1);
             System.out.print(tablou[i] + " ");
+            if (i==50) {
+                System.out.println();
+            }
         }
         System.out.println("\n");
 
