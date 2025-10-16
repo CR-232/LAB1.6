@@ -11,7 +11,7 @@ public class Main {
 
         // Generăm valori între 0–98
         for (int i = 0; i < 100; i++) {
-            tablou[i] = (int) (Math.random() * 99);
+            tablou[i] = (int) (Math.random() * 99 + 1);
             System.out.print(tablou[i] + " ");
         }
         System.out.println("\n");
