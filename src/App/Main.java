@@ -12,8 +12,12 @@ public class Main {
         for (int i = 0; i < 100; i++) {
             tablou[i] = (int) (Math.random() * 99);
             System.out.print(tablou[i] + " ");
+            if (i == 50) {
+                System.out.println();
+            }
         }
         System.out.println("\n");
+
 
         // Th1 și Th2
         Counter1imp th1 = new Counter1imp(0, 99, 1, tablou);
@@ -44,7 +48,7 @@ public class Main {
         }
 
         // Textul final (cu întârziere între litere)
-        String text = "Lucrarea realizata de:Tulei Mihagit reset\n4il (Th1/Th2)  Cuturov Oleg ( Th3/Th4 )";
+        String text = "Lucrarea realizata de:Tulei Mihail\n4il (Th1/Th2)  Cuturov Oleg ( Th3/Th4 )";
         for (char c : text.toCharArray()) {
             System.out.print(c);
             try { Thread.sleep(100); } catch (InterruptedException ignored) {}
