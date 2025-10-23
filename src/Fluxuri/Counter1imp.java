@@ -28,9 +28,9 @@ public class Counter1imp extends Thread {
                         sumaprodus += produs;
                         System.out.println(getName() + " : " + s1 + ", " + s2 +
 
-                                "  valori: " + tablou[s1] + ", " + tablou[s2] +
-                                "  produs: " + produs +
-                                "  suma: " + sumaprodus);
+                                "  Valori: " + tablou[s1] + ", " + tablou[s2] +
+                                "  Produs: " + produs +
+                                "  Suma: " + sumaprodus);
 
                         break;
                     }
