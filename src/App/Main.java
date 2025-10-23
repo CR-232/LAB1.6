@@ -13,7 +13,7 @@ public class Main {
         for (int i = 0; i < 100; i++) {
             tablou[i] = (int) (Math.random() * 99 + 1);
             System.out.print(tablou[i] + " ");
-            if (i==50) {
+            if (i == 24 || i == 49 || i == 74) {
                 System.out.println();
             }
         }
