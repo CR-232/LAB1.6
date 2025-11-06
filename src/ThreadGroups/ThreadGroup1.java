@@ -9,44 +9,48 @@ public class ThreadGroup1 extends ThreadGroup {
 
     public ThreadGroup1(ThreadGroup parent, String name) {
         super(parent, name);
+        main();
     }
 
     public void main() {
-        ThreadGroup sys = Thread.currentThread().getThreadGroup();
-        sys.list();
-        sys.setMaxPriority(Thread.MAX_PRIORITY - 1);
+//        ThreadGroup G1 = new ThreadGroup("G1");
+        this.setMaxPriority(Thread.MAX_PRIORITY);
 
-        Thread curr = Thread.currentThread();
-        curr.setPriority(curr.getPriority() + 1);
-        sys.list();
-
-
-        ThreadGroup G1 = new ThreadGroup("G1");
-        G1.setMaxPriority(Thread.MAX_PRIORITY);
-
-        Thread t = new Thread(G1, "d");
+        Thread t = new Thread(this, "Thd");
         t.start();
         t.setPriority(3);
-        G1.list();
+        System.out.println("----------------");
+        System.out.println("G1.list Thd");
+        this.list();
+        System.out.println("----------------");
 
-        G1.setMaxPriority(Thread.MAX_PRIORITY - 2);
-        G1.setMaxPriority(Thread.MAX_PRIORITY);
-        G1.list();
-
-        t = new Thread(G1, "a");
+        t = new Thread(this, "Tha");
         t.start();
-        t.setPriority(Thread.MAX_PRIORITY);
+        t.setPriority(1);
 
-        G1.list();
-        G1.setMaxPriority(Thread.MIN_PRIORITY + 2);
+        System.out.println("----------------");
+        System.out.println("G1.list Tha");
+        this.list();
+        System.out.println("----------------");
 
-        t = new Thread(G1, "b");
+        t = new Thread(this, "Thb");
         t.start();
-        t.setPriority(t.getPriority() - 1);
+        t.setPriority(3);
 
-        G1.list();
-        t = new Thread(G1, "c");
+        System.out.println("----------------");
+        System.out.println("G1.list Thb");
+        this.list();
+        System.out.println("----------------");
+
+
+        t = new Thread(this, "Thc");
         t.start();
-        t.setPriority(t.getPriority() - 1);
+        t.setPriority(8);
+
+        System.out.println("----------------");
+        System.out.println("G1.list Thc");
+        this.list();
+        System.out.println("----------------");
+
     }
 }

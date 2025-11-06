@@ -9,32 +9,27 @@ public class ThreadGroup2 extends ThreadGroup {
 
     public ThreadGroup2(ThreadGroup parent, String name) {
         super(parent, name);
+        main();
     }
 
-    public static void main() {
+    public void main() {
 
-        ThreadGroup sys = Thread.currentThread().getThreadGroup();
-        sys.list();
-        sys.setMaxPriority(Thread.MAX_PRIORITY - 1);
+        ThreadGroup4 G4 = new ThreadGroup4(this, "G4");
+        G4.setMaxPriority(this.getMaxPriority() - 1);
+        System.out.println("----------------");
+        System.out.println("G4.list TG2");
+        G4.list();
+        System.out.println("----------------");
+//        G4.start();
 
-        Thread curr = Thread.currentThread();
-        curr.setPriority(curr.getPriority() + 1);
-        sys.list();
-
-        ThreadGroup4 G4 = new ThreadGroup4(sys, "G4");
-        G4.list(); // (8)
-        G4.setMaxPriority(Thread.MAX_PRIORITY);
-        G4.list(); // (9)
-
-        Thread t = new Thread(G4, "A");
+        Thread t = new Thread(this, "ThA");
         t.start();
-        t.setPriority(curr.getPriority() + 1);
-        G4.list();
+        t.setPriority(1);
 
-        G4.setMaxPriority(Thread.MAX_PRIORITY - 2);
-        G4.setMaxPriority(Thread.MAX_PRIORITY);
-        G4.list();
-
+        System.out.println("----------------");
+        System.out.println("G2.list pentru ThA");
+        this.list();
+        System.out.println("----------------");
 
     }
 }

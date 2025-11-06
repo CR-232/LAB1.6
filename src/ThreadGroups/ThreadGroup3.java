@@ -12,42 +12,35 @@ public class ThreadGroup3 extends ThreadGroup {
         main();
     }
 
-    public static void main() {
+    public void main() {
 
+//        ThreadGroup G3 = new ThreadGroup("G3");
+        this.setMaxPriority(Thread.MAX_PRIORITY);
 
-        ThreadGroup sys = Thread.currentThread().getThreadGroup();
-        sys.list();
-        sys.setMaxPriority(Thread.MAX_PRIORITY - 1);
-
-        Thread curr = Thread.currentThread();
-        curr.setPriority(curr.getPriority() + 1);
-        sys.list();
-
-
-        ThreadGroup G3 = new ThreadGroup("G1");
-        G3.setMaxPriority(Thread.MAX_PRIORITY);
-
-        Thread t = new Thread(G3, "1");
+        Thread t = new Thread(this, "Th1");
         t.start();
         t.setPriority(4);
-        G3.list();
+        this.list();
+//        System.out.println("----------------");
+//        System.out.println("G3.list TG3");
+//        this.list();
+//        System.out.println("----------------");
 
-        t = new Thread(G3, "2");
+        t = new Thread(this, "Th2");
         t.start();
-        t.setPriority(curr.getPriority()+3);
-        G3.list();
+        t.setPriority(3);
+//        System.out.println("----------------");
+//        System.out.println("G3.list TG3");
+        this.list();
+//        System.out.println("----------------");
 
-        G3.setMaxPriority(Thread.MAX_PRIORITY - 2);
-        G3.setMaxPriority(Thread.MAX_PRIORITY);
-        G3.list();
+//        G3.setMaxPriority(Thread.MAX_PRIORITY - 2);
+//        G3.setMaxPriority(Thread.MAX_PRIORITY);
+//        G3.list();
 
-        t = new Thread(G3, "3");
+        t = new Thread(this, "Th3");
         t.start();
         t.setPriority(5);
-        G3.list();
-
-        G3.setMaxPriority(Thread.MAX_PRIORITY - 2);
-        G3.setMaxPriority(Thread.MAX_PRIORITY);
-        G3.list();
+        this.list();
     }
 }
