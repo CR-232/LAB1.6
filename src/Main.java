@@ -27,8 +27,13 @@ public class Main {
 
             System.out.println("Th1 suma totala: " + sum);
 
-            try { th4.join(); }
-            catch (InterruptedException e) { return; }
+            try {
+                th4.join();
+            }
+            catch (InterruptedException e) {
+                return;
+            }
+
 
             String text = "Daniele  |   Mihail-Gheorge";
             for (char c : text.toCharArray()) {
@@ -55,13 +60,14 @@ public class Main {
                 sum += prod;
                 System.out.println("Th2 suma partiala:" + sum);
             }
-            try {
-//                th1.join();
-                Thread.sleep(400);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
             System.out.println("Th2 total sum: " + sum);
+
+            try {
+                th4.join();
+            } catch (InterruptedException e) {
+//                throw new RuntimeException(e);
+            }
+
             System.out.println("Spinei  |   Tulei");
         }
     }
@@ -76,7 +82,7 @@ public class Main {
             catch (InterruptedException e) { return; }
 
             for (int i = 908; i >= 123; i -= 1) {
-                System.out.print(i + " ");
+                System.out.println("Thread 4: " + i + " ");
                 try { Thread.sleep(30); }
                 catch (InterruptedException e) { return; }
             }
@@ -86,7 +92,11 @@ public class Main {
 
             System.out.println();
 
-            try { th2.join(); }
+            try {
+                th2.interrupt();
+                th2.join();
+            }
+
             catch (InterruptedException e) { return; }
 
             String text = "Grupa CR-232";
@@ -106,13 +116,16 @@ public class Main {
             System.out.print("Thread 3 nr: ");
 
             for (int i = 654; i <= 1278; i += 1) {
-                System.out.print(i + " ");
+                System.out.println("Thread 3: " + i + " ");
                 try { Thread.sleep(30); }
                 catch (InterruptedException e) { return; }
             }
             System.out.println();
 
-            try { th1.join(); }
+            try {
+//                th1.interrupt();
+                th1.join();
+            }
             catch (InterruptedException e) { return; }
 
             String text = "Programarea Concurenta si Distributiva";
