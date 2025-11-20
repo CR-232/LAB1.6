@@ -24,10 +24,10 @@ public class Main {
 
                 int prod = tablou1[i] * tablou1[i + 2];
                 sum += prod;
-                System.out.println("\nTh1 suma partiala: " + sum);
+                System.out.println(currentThread().getName() +"   "+sum);
             }
 
-            System.out.println("Th1 suma totala: " + sum);
+            System.out.println(currentThread().getName() +"    " + sum);
 
             try {
                 th4.join();
@@ -64,7 +64,7 @@ public class Main {
 
                 int prod = tablou1[i] * tablou1[i - 2];
                 sum += prod;
-                System.out.println("Th2 suma partiala:" + sum);
+                System.out.println(currentThread().getName()+"    "+ sum);
             }
             System.out.println("Th2 total sum: " + sum);
 
