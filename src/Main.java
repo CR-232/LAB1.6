@@ -60,7 +60,7 @@ public class Main {
                 sum += prod;
                 System.out.println("Th2 suma partiala:" + sum);
             }
-            System.out.println("Th2 total sum: " + sum);
+            System.out.println(currentThread().getName() + " " + "total sum: " + sum);
 
             try {
                 th4.join();
@@ -80,9 +80,10 @@ public class Main {
 
             try { Thread.sleep(400); }
             catch (InterruptedException e) { return; }
-
+//            System.out.print("Thread 4: ");
             for (int i = 908; i >= 123; i -= 1) {
-                System.out.println("Thread 4: " + i + " ");
+
+                System.out.print(currentThread().getName() + " " + i + " ");
                 try { Thread.sleep(30); }
                 catch (InterruptedException e) { return; }
             }
@@ -114,9 +115,10 @@ public class Main {
         @Override
         public void run() {
             System.out.print("Thread 3 nr: ");
-
+            System.out.println("Thread 3: ");
             for (int i = 654; i <= 1278; i += 1) {
-                System.out.println("Thread 3: " + i + " ");
+
+                System.out.print(this.currentThread().getName() + " " + i + " ");
                 try { Thread.sleep(30); }
                 catch (InterruptedException e) { return; }
             }
