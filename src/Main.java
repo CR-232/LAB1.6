@@ -18,7 +18,9 @@ public class Main {
 
             for (int i = 0; i < tablou1.length - 2; i += 4) {
                 try { Thread.sleep(100); }
-                catch (InterruptedException e) { return; }
+                catch (InterruptedException e) {
+                    return;
+                }
 
                 int prod = tablou1[i] * tablou1[i + 2];
                 sum += prod;
@@ -35,11 +37,13 @@ public class Main {
             }
 
 
-            String text = "Daniele  |   Mihail-Gheorge";
+            String text = "Daniele  |   Mihail-Gheorgii";
             for (char c : text.toCharArray()) {
                 System.out.print(c);
                 try { Thread.sleep(100); }
-                catch (InterruptedException e) { return; }
+                catch (InterruptedException e) {
+                    return;
+                }
             }
             System.out.println();
         }
@@ -53,7 +57,9 @@ public class Main {
             int sum = 0;
 
             for (int i = tablou1.length - 1; i >= 3; i -= 4) {
-                try { Thread.sleep(100); }
+                try {
+                    Thread.sleep(100);
+                }
                 catch (InterruptedException e) { return; }
 
                 int prod = tablou1[i] * tablou1[i - 2];
@@ -97,13 +103,17 @@ public class Main {
                 th2.join();
             }
 
-            catch (InterruptedException e) { return; }
+            catch (InterruptedException e) {
+                return;
+            }
 
             String text = "Grupa CR-232";
             for (char c : text.toCharArray()) {
                 System.out.print(c);
                 try { Thread.sleep(100); }
-                catch (InterruptedException e) { return; }
+                catch (InterruptedException e) {
+                    return;
+                }
             }
             System.out.println();
         }
@@ -118,7 +128,9 @@ public class Main {
             for (int i = 654; i <= 1278; i += 1) {
                 System.out.println("Thread 3: " + i + " ");
                 try { Thread.sleep(30); }
-                catch (InterruptedException e) { return; }
+                catch (InterruptedException e) {
+                    return;
+                }
             }
             System.out.println();
 
@@ -126,13 +138,17 @@ public class Main {
 //                th1.interrupt();
                 th1.join();
             }
-            catch (InterruptedException e) { return; }
+            catch (InterruptedException e) {
+                return;
+            }
 
-            String text = "Programarea Concurenta si Distributiva";
+            String text = "Programarea Concurenta si Distribuita";
             for (char c : text.toCharArray()) {
                 System.out.print(c);
                 try { Thread.sleep(100); }
-                catch (InterruptedException e) { return; }
+                catch (InterruptedException e) {
+                    return;
+                }
             }
             System.out.println();
         }
