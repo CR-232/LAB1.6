@@ -17,30 +17,24 @@ public class ThreadGroup3 extends ThreadGroup {
 //        ThreadGroup G3 = new ThreadGroup("G3");
         this.setMaxPriority(Thread.MAX_PRIORITY);
 
-        Thread t = new Thread(this, "Th1");
-        t.start();
-        t.setPriority(4);
-        this.list();
-//        System.out.println("----------------");
-//        System.out.println("G3.list TG3");
-//        this.list();
-//        System.out.println("----------------");
+        Thread th1 = new Thread(this, () -> {
+            try { Thread.sleep(2000); } catch (InterruptedException e) {}
+        }, "Th1");
+        th1.setPriority(4);
+        th1.start();
 
-        t = new Thread(this, "Th2");
-        t.start();
-        t.setPriority(3);
-//        System.out.println("----------------");
-//        System.out.println("G3.list TG3");
-        this.list();
-//        System.out.println("----------------");
+        Thread th2 = new Thread(this, () -> {
+            try { Thread.sleep(2000); } catch (InterruptedException e) {}
+        }, "Th2");
+        th2.setPriority(3);
+        th2.start();
 
-//        G3.setMaxPriority(Thread.MAX_PRIORITY - 2);
-//        G3.setMaxPriority(Thread.MAX_PRIORITY);
-//        G3.list();
+        Thread th3 = new Thread(this, () -> {
+            try { Thread.sleep(2000); } catch (InterruptedException e) {}
+        }, "Th3");
+        th3.setPriority(5);
+        th3.start();
 
-        t = new Thread(this, "Th3");
-        t.start();
-        t.setPriority(5);
         this.list();
     }
 }
