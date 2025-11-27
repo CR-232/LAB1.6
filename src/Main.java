@@ -17,11 +17,6 @@ public class Main {
             int sum = 0;
 
             for (int i = 0; i < tablou1.length - 2; i += 4) {
-                try { Thread.sleep(100); }
-                catch (InterruptedException e) {
-                    return;
-                }
-
                 int prod = tablou1[i] * tablou1[i + 2];
                 sum += prod;
                 System.out.println(currentThread().getName() +"   "+sum);
@@ -57,10 +52,6 @@ public class Main {
             int sum = 0;
 
             for (int i = tablou1.length - 1; i >= 3; i -= 4) {
-                try {
-                    Thread.sleep(100);
-                }
-                catch (InterruptedException e) { return; }
 
                 int prod = tablou1[i] * tablou1[i - 2];
                 sum += prod;
@@ -68,8 +59,10 @@ public class Main {
             }
             System.out.println(currentThread().getName() + " " + "total sum: " + sum);
 
+
+
             try {
-                th4.join();
+                th2.sleep(4000);
             } catch (InterruptedException e) {
 //                throw new RuntimeException(e);
             }
@@ -84,29 +77,22 @@ public class Main {
         public void run() {
             System.out.println("\nThread 4 nr: ");
 
-            try { Thread.sleep(400); }
-            catch (InterruptedException e) { return; }
-//            System.out.print("Thread 4: ");
             for (int i = 908; i >= 123; i -= 1) {
 
                 System.out.print(currentThread().getName() + " " + i + " ");
-                try { Thread.sleep(30); }
-                catch (InterruptedException e) { return; }
             }
-
-            try { Thread.sleep(100); }
-            catch (InterruptedException e) { return; }
-
             System.out.println();
 
-            try {
-                th2.interrupt();
-                th2.join();
+            while((th2.isAlive())) {
+                try {
+                    th4.sleep(100);
+                } catch (InterruptedException e) {
+//                    throw new RuntimeException(e);
+                }
             }
 
-            catch (InterruptedException e) {
-                return;
-            }
+
+
 
             String text = "Grupa CR-232";
             for (char c : text.toCharArray()) {
@@ -124,20 +110,22 @@ public class Main {
     public static class Thread3 extends Thread {
         @Override
         public void run() {
-            System.out.print("Thread 3 nr: ");
             System.out.println("Thread 3: ");
             for (int i = 654; i <= 1278; i += 1) {
-
                 System.out.print(this.currentThread().getName() + " " + i + " ");
-                try { Thread.sleep(30); }
-                catch (InterruptedException e) {
-                    return;
-                }
             }
             System.out.println();
 
+
+//            while(th1.isAlive()) {
+//                try {
+//                    th3.sleep(100);
+//                } catch (InterruptedException e) {
+//                    throw new RuntimeException(e);
+//                }
+//            }
+
             try {
-//                th1.interrupt();
                 th1.join();
             }
             catch (InterruptedException e) {
