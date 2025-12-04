@@ -8,17 +8,33 @@ public class Depozit {
         this.buffer = new int[D];
     }
 
-    public synchronized void produce(int value, String producerName) {
+    public synchronized void produce(int value1, int value2, String producerName) {
 
-        if (size == capacity) {
-            System.out.println(producerName + " -> Depozit plin! Obiectul " + value + " s-a pierdut.");
+        if (check()) {
+            System.out.println(producerName +  " a pierdut " + value1 +" si " + value2
+                    + " | Depozit: " + size + "/" + capacity);
             return;
         }
 
-        buffer[size] = value;
+
+        buffer[size] = value1;
+        size++;
+        System.out.println(producerName + " a produs: " + value1
+                + " | Depozit: " + size + "/" + capacity);
+
+        if (check()) {
+            System.out.println(producerName + " a pierdut " + value2
+                    + " | Depozit: " + size + "/" + capacity);
+            return;
+        }
+
+        System.out.println(producerName + " a produs: " + value2
+                + " | Depozit: " + size + "/" + capacity);
+
+        buffer[size] = value2;
         size++;
 
-        System.out.println(producerName + " a produs: " + value
+        System.out.println(producerName + " a produs: " + value1 +" si " + value2
                 + " | Depozit: " + size + "/" + capacity);
 
         notifyAll();
@@ -39,4 +55,13 @@ public class Depozit {
         notifyAll();
         return value;
     }
+
+    public boolean check() {
+        if(size == capacity) {
+            return true;
+        }
+
+        return false;
+    }
+
 }

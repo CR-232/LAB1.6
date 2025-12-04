@@ -16,11 +16,13 @@ public class Producer extends Thread {
     public void run() {
         while (running) {
 
-            for (int i = 0; i < 2; i++) {
-                int val = impare[(int) (Math.random() * impare.length)];
-                depozit.produce(val, getName());
-            }
-            try { Thread.sleep(200); } catch (InterruptedException e) {}
+
+                int val1 = impare[(int) (Math.random() * impare.length)];
+                int val2 = impare[(int) (Math.random() * impare.length)];
+                depozit.produce(val1, val2, getName());
+
+            try {
+                Thread.sleep(200); } catch (InterruptedException e) {}
         }
         System.out.println(getName() + " s-a oprit.");
     }
